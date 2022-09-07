@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_172337) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_193954) do
+  create_table "game_shops", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.integer "min_age"
@@ -18,11 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_172337) do
     t.integer "min_health"
     t.integer "price"
     t.text "description"
-  end
-
-  create_table "gameshops", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
+    t.integer "play_time"
+    t.integer "teams"
   end
 
   create_table "players", force: :cascade do |t|
@@ -37,7 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_172337) do
     t.integer "game_shop_id"
     t.integer "game_id"
     t.integer "player_id"
-    t.datetime "play_time"
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
