@@ -14,5 +14,5 @@ task :server do
         return
     end
 
-    exec "bundle exec rerun -b 'rackup cofig.ru'"
+    exec "bundle exec rerun -b 'rackup config.ru'"
 end
