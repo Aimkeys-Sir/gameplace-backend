@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_121945) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_11_113550) do
   create_table "game_shops", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -25,14 +25,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_121945) do
     t.text "description"
     t.integer "play_time"
     t.integer "teams"
+    t.string "technologies"
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "password"
+    t.string "birthday"
     t.integer "level"
-    t.integer "age"
-    t.integer "health_score"
+    t.string "callsign"
+    t.string "email"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -42,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_121945) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "play_time"
+    t.integer "amount"
   end
 
 end

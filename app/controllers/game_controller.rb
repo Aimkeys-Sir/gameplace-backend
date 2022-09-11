@@ -2,7 +2,7 @@ class GameController < Sinatra::Base
     set :default_content_type, 'application/json'
 
     get '/games' do
-        Game.all.to_json
+        Game.all.to_json(:include=>{:gameshops =>{:only=>[:name,:location,:id]}})
     end
 
     get '/game/:id' do
