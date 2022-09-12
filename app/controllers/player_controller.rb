@@ -14,6 +14,9 @@ class PlayerController < Sinatra::Base
             **player.serializable_hash,
             sessions: [
                 *player.sessions_data
+            ],
+            games:[
+                *player.games_data
             ]
         }.to_json
     end

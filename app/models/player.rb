@@ -14,4 +14,11 @@ class Player < ActiveRecord::Base
             }
         end
     end
+    def games_data
+        self.games.uniq.map do |game|
+            {
+                name:game.name
+            }
+        end
+    end
 end
