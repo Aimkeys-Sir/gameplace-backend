@@ -22,18 +22,59 @@ class PlayerController < Sinatra::Base
     end
 
     post '/player' do
-        Player.create(
+       player=Player.create(
             first_name:params[:first_name],
             last_name:params[:last_name],
             password:params[:password],
             birthday:params[:birthday],
-            email:params[:email]
+            email:params[:email],
+            callsign:params[:callsign],
+            level:0,
+            credits:300
         )
+        {
+            **player.serializable_hash,
+            sessions: [
+                *player.sessions_data
+            ],
+            games:[
+                *player.games_data
+            ]
+        }.to_json
     end
 
     patch '/player/:id' do
         player=Player.find(params[:id])
-        player.update()
+        player.update(
+            first_name:params[:first_name],
+            last_name:params[:last_name],
+            callsign:params[:callsign]
+        )
+        {
+            **player.serializable_hash,
+            sessions: [
+                *player.sessions_data
+            ],
+            games:[
+                *player.games_data
+            ]
+        }.to_json
+    end
+
+    patch '/credits/:id' do
+        player=Player.find(params[:id])
+        player.update(
+         credits:params[:credits]
+        )
+        {
+            **player.serializable_hash,
+            sessions: [
+                *player.sessions_data
+            ],
+            games:[
+                *player.games_data
+            ]
+        }.to_json
     end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_11_113550) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_200329) do
   create_table "game_shops", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_113550) do
     t.integer "level"
     t.string "callsign"
     t.string "email"
+    t.string "credits"
   end
 
   create_table "sessions", force: :cascade do |t|

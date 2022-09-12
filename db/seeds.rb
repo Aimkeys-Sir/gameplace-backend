@@ -35,7 +35,7 @@ Game.create(
 )
 Game.create(
     name:"Death Race",
-    description:"",
+    description:" It is just a matter of when. Take courage, nobody makes it out alive.",
     price:800,
     min_age:7,
     min_health:5,
@@ -198,6 +198,7 @@ puts 'the games were assigned to gameshops'
         level: rand(0..10),
         callsign: Faker::Creature::Bird.common_name,
         birthday: Date.new(rand(1960..2015),rand(1..12),rand(1..28)).to_s,
+        credits:rand(50..1000)*10
     )
 end
 puts 'There came the guys'
